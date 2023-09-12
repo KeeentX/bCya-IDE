@@ -15,10 +15,10 @@ const App = () => {
                   <FileBrowser/>
               </div>
               <div className={'w-full'}>
-                  <header>
-                      <div className={'p-2'}>
-                          <button className={'bg-[#F25757] w-28 p-2 mx-2'}>RUN</button>
-                          <button className={'bg-[#F25757] w-28 p-2'}>COMPILE</button>
+                  <header className={'ads object-contain w-full'}>
+                      <div className={'p-4'}>
+                          <button className={'bg-[#F25757] w-28 p-2 mx-2 rounded-lg pacifico'}>Run</button>
+                          <button className={'bg-[#F25757] w-28 p-2 rounded-lg pacifico'}>Compile</button>
                       </div>
                       <div className={'text-center bg-[#312F37] text-white'}>
                           main.cpp

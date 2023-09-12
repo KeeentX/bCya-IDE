@@ -1,8 +1,25 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto:wght@100&display=swap');
 
-* {
-    font-family: Montserrat, serif
+@font-face {
+    font-family: Roboto-Medium;
+    src: url('Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: Pacifico;
+    src: url(Pacifico-Regular.ttf);
+}
+
+.roboto {
+    font-family: Roboto-Medium;
+}
+
+.pacifico {
+    font-family: Pacifico;
+}
+
+.ads {
+    background-image: url(assets/persuasive-ads-coca-cola-1.jpg);
 }

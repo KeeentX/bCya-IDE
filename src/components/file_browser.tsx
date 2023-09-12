@@ -6,7 +6,7 @@ export default function FileBrowser() {
     // console.log(dirTree(""));
     return (
         <div className={' h-full'}>
-            <button className={'text-white'} style={{fontFamily: 'Montserrat'}}>Hellow</button>
+            <button className={'text-white roboto'}>Hellow</button>
         </div>
     );
 }
