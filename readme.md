@@ -1,7 +1,7 @@
 # BCYA Project Setup
 
-**Prerequisites**
-Install the latest release of [Nodejs](https://nodejs.org/en/download)
+**Prerequisites** <br><br>
+Install the latest release of [Nodejs](https://nodejs.org/en/download) <br>
 Install rustup-init for [Rust](https://www.rust-lang.org/tools/install) to setup compiler and Visual C++ Prerequisites
  1. For Visual C++ Prerequisites (If not yet installed on your system), choose 1 in the rustup prompt, do not close the prompt window.
  2. Wait for the Visual Studio initialization.
@@ -9,7 +9,7 @@ Install rustup-init for [Rust](https://www.rust-lang.org/tools/install) to setup
 	 - MSVC latest, in the time of this writing it is MSVC v143
 	 - Windows 10/11 SDK
  4. Click install
- 5. After installation, go back to rustup-init windows and choose:
+ 5. After installation, go back to rustup-init window and choose:
 	 - 1.) Proceed with installation.
 
 That's it!
