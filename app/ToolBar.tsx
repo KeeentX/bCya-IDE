@@ -13,7 +13,7 @@ function SaveButton(props: any) {
 export default function ToolBar() {
     return (
         <React.Fragment>
-            <div className={'flex flex-row bg-secondary-dark py-2 px-2 justify-between py-5'}>
+            <div className={'flex flex-row bg-editor-dark px-2 justify-between py-5'}>
                 <div className={'flex ml-2'}>
                     <SaveButton icon={'/save.png'} text={'SAVE'}/>
                     <SaveButton icon={'/save_as.png'} text={'SAVE AS'}/>
