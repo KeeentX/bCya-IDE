@@ -1,26 +1,16 @@
 "use client"
-import {useFilePicker} from "use-file-picker";
-
+import {OpenedFile} from "@/app/context/FileContext";
 export default function FileViewer(props: any) {
-    const { openFilePicker, filesContent, loading } = useFilePicker({
-        accept: '.tsx',
-    });
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
 
     return (
-        <div className={'w-64 flex flex-row justify-center'}>
+        <div className={'w-[15dvw] flex flex-col justify-center bg-gray-950'}>
             <button
-                onClick={() => openFilePicker()}
-                className={'text-white bg-secondary-dark border-[1px] border-accent-pink mt-2 w-fit h-fit p-2 px-4'}>
-                Open File
+                className={'text-white'}
+                onClick={() => {
+                    props.setOpenedFiles((prevState: OpenedFile[]) => [])
+                }}>
+                Empty
             </button>
-            <br />
-            {filesContent.map((file, index) => (
-                props.setEditorContent(file.content)
-            ))}
         </div>
     );
 }
