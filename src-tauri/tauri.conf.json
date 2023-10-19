@@ -27,8 +27,8 @@
         "open": true,
         "scope": [
           {
-            "name": "cmd.exe",
-            "cmd": "cmd"
+            "name": "powershell",
+            "cmd": "powershell.exe"
           }
         ]
       },
@@ -48,7 +48,8 @@
         "removeDir": true,
         "removeFile": true,
         "renameFile": true,
-        "exists": true
+        "exists": true,
+        "scope": ["$DOCUMENT/*", "$HOME/*"]
       },
       "window": {
         "all": false,
@@ -104,12 +105,12 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 800,
         "minHeight": 600,
         "minWidth": 800,
         "resizable": true,
         "title": "BCYA IDE",
-        "width": 800,
+        "width": 1200,
         "decorations": false
       }
     ]

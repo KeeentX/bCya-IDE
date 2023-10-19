@@ -1,10 +1,10 @@
-import {newFile} from "@/app/filesystem/newfile";
+import {newFile} from "@/app/main/filesystem/newfile";
 
 export default function NewFile(props: any) {
     return (
         <button
             onClick={() => {
-                newFile(props);
+                newFile(props.setOpenedFiles);
                 props.setMenuShown({
                     file: false,
                     edit: false,

@@ -1,17 +1,9 @@
 "use client"
-import {Terminal} from "xterm";
-import {useEffect} from "react";
-import {Command} from "@tauri-apps/api/shell";
 
-interface Response {
-    current_dir: string,
-    stdout: string,
-    stderr: string,
-}
-export default async function TerminalComponent(props: { showTerminal: boolean }) {
-    // const command = new Command('cmd.exe')
-    // const child = await command.spawn()
-    // console.log(child)
+import React, {useEffect} from "react";
+import {Terminal} from "xterm";
+
+export default function TerminalWindow(props: any) {
     useEffect(() => {
         const element = document.getElementById('terminal');
         if (element)
@@ -39,7 +31,6 @@ export default async function TerminalComponent(props: { showTerminal: boolean }
             }
         })
     }, []);
-
     return (
         <div id={"terminal"} className={`w-[100dvw] ${props.showTerminal ? null : 'hidden'}`}></div>
     )

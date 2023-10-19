@@ -1,9 +1,11 @@
+'use client'
+
 import {OpenedFile, OpenedFilesContext} from "@/app/context/FileContext";
 import {useContext} from "react";
-import Tab from "@/app/components/tabs/components/tab";
+import Tab from "@/app/main/components/tabs/components/tab";
 import {Icon} from "@iconify/react";
-import {newFile} from "@/app/filesystem/newfile";
-export default function Tabs(props: any) {
+import {newFile} from "@/app/main/filesystem/newfile";
+export default function Tabs() {
     const {openedFiles, setOpenedFiles} = useContext(OpenedFilesContext);
     return (
         <div className={'w-full bg-gray-950 flex justify-start overflow-y-auto max-w-[85dvw] rounded-t-md'}>
@@ -19,20 +21,19 @@ export default function Tabs(props: any) {
                 />
                 )
             )}
+            {openedFiles.length > 0 ?
             <div
                 onClick={() => {
-                    newFile(props)
+                    newFile(setOpenedFiles)
                 }}
-                className={'cursor-pointer'}>
+                className={'cursor-pointer flex items-center w-fit h-fit mt-3 ml-3 rounded-full hover:bg-gray-800 group'}>
                 <Icon
                     icon={'heroicons:plus'}
-                    width={'20'}
-                    height={'20'}
-                    fill={'white'}
-                    stroke={'white'}
-                    color={'white'}
+                    width={'25'}
+                    height={'25'}
+                    className={'p-1 text-gray-500 group-hover:text-white'}
                 />
-            </div>
+            </div> : null}
         </div>
     )
 }

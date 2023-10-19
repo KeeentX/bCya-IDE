@@ -1,5 +1,4 @@
 "use client"
-
 import React from "react";
 import TitleBarMenu from "@/app/main/Titlebar/TitlebarMenu";
 import {NextFont} from "next/dist/compiled/@next/font";
