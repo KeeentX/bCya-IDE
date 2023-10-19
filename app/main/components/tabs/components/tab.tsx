@@ -1,9 +1,10 @@
 import {Coda} from "next/font/google";
 import {NextFont} from "next/dist/compiled/@next/font";
 import {OpenedFile} from "@/app/context/FileContext";
-import {CloseIcon} from "@/app/components/icons";
-import {ask, message, save} from "@tauri-apps/api/dialog";
-import {write} from "@/app/filesystem/write";
+import {CloseIcon} from "@/app/main/components/icons";
+import {ask, message} from "@tauri-apps/api/dialog";
+import {write} from "@/app/main/filesystem/write";
+import {saveas} from "@/app/main/filesystem/saveas";
 
 const coda : NextFont = Coda({
     style: 'normal',
@@ -22,7 +23,7 @@ export default function Tab(props: any) {
                     return [...prevState];
                 });
             }}
-            className={`w-fit max-w-[170px] p-3 flex flex-row items-center justify-center rounded-t-sm group select-none
+            className={`w-fit p-3 flex flex-row items-center justify-center rounded-t-sm group select-none
             ${props.active ?
                 'bg-editor-dark border-t-[1px] border-accent-pink text-almost-white' :
                 'text-gray-400 bg-gray-950 border-0 hover:text-gray-50'}`}>
@@ -46,30 +47,7 @@ export default function Tab(props: any) {
                         const location = file.location;
                         const newContent = file.newContent;
                         if(location === null) {
-                            let filepath = null;
-                            while(filepath === null) {
-                                filepath = await save({
-                                    filters: [{
-                                        name: 'BCYA File',
-                                        extensions: ['bcya']
-                                    }]
-                                })
-                                if(filepath === null) {
-                                    const yes = await ask('Please select location to save.', {
-                                        title: 'Error!',
-                                        type: 'error',
-                                        cancelLabel: 'Discard Changes',
-                                        okLabel: 'Okay',
-                                    });
-                                    if(!yes) break;
-                                }
-                            }
-                            if(filepath !== null) {
-                                if(await write(filepath as string, newContent))
-                                    await message('File saved successfully!');
-                                else
-                                    await message('Failed to save file!', {type: 'error'});
-                            }
+                            await saveas(newContent);
                         } else {
                             if(await write(location, newContent))
                                 await message('File saved successfully!');
