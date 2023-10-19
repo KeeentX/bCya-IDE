@@ -1,7 +1,7 @@
 import {OpenedFile} from "@/app/context/FileContext";
 
-export function newFile(props: any) {
-    props.setOpenedFiles((prevState: OpenedFile[]) => {
+export function newFile(setOpenedFiles: any) {
+    setOpenedFiles((prevState: OpenedFile[]) => {
         prevState.map((file: OpenedFile) => {
             file.active = false;
         });
