@@ -4,12 +4,14 @@ import {OpenedFile} from "@/app/context/FileContext";
 import {message} from "@tauri-apps/api/dialog";
 import {saveas} from "@/app/main/filesystem/saveas";
 import {Icon} from "@iconify/react";
+import {redo, undo} from "@codemirror/commands";
 function SaveButton(props: any) {
     return (
         <button
             onClick={async () => {
                 const file = props.openedFiles[props.index];
-                if (!file.saved || props.type === 'saveas') {
+                if(file.saved && props.type === 'save') return;
+                if (!file.saved && props.type === 'save') {
                     if (file.location !== null && props.type !== 'saveas') {
                         const result = await write(file.location as string, file.newContent as string);
                         props.setOpenedFiles((prevState: OpenedFile[]) => {
@@ -37,7 +39,8 @@ function SaveButton(props: any) {
                     await saveas(file.newContent);
                 }
             }}
-            className={'text-white flex py-1 px-2 mx-1 rounded-md bg-gray-800 hover:bg-gray-900 group'}>
+            className={`text-white flex py-1 px-2 mx-1 rounded-md hover:bg-gray-900 group
+            ${props.openedFiles[props.index].saved && props.type === 'save' ? 'border-gray-900 opacity-80' : 'bg-gray-800'}`}>
             <div className={'px-1 mt-[1px]'}
             title={props.title}>
                 <img src={props.icon} alt={props.text} width={'20px'} className={'opacity-80 group-hover:opacity-100'}/>

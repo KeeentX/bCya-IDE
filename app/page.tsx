@@ -9,12 +9,12 @@ export default function Page() {
     useEffect(() => {
         setTimeout(() => {
             setNext(true)
-        }, 10000)
+        }, 20000)
     }, []);
     return (
         <React.Fragment>
             {next ? <Page2/> :
-            <div className={'bg-accent-pink animated-gradient'}>
+            <div className={'bg-accent-pink animated-gradient select-none'}>
                 <Tilt
                     className={"parallax-effect-glare-scale rounded-full z-0"}
                     perspective={300}
@@ -22,7 +22,7 @@ export default function Page() {
                     <div className={'rounded-md flex justify-center'}
                          title={'Click to Proceed'}
                          onClick={() => {setNext(true)}}>
-                        <img src={'/splash.png'} alt={'icon'} width={'70%'} height={'70%'} className={''}/>
+                        <img src={'/splash.png'} alt={'icon'} width={'70%'} height={'70%'} className={'pointer-events-none'}/>
                     </div>
                 </Tilt>
             </div>

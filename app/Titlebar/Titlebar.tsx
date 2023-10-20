@@ -17,7 +17,7 @@ export default async function TitleBar() {
             <TitleBarMenu coda={coda}/>
             <span className={`text-white text-xs select-none hover:text-accent-pink cursor-pointer ${coda.className}`}
                   data-tauri-drag-region="">
-                BCYA IDE V0.2.0
+                BCYA IDE V0.2.3
             </span>
             <TitleBarActions/>
         </div>

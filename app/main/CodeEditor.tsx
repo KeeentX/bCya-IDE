@@ -3,16 +3,18 @@ import CodeMirror from '@uiw/react-codemirror';
 import {tokyoNight} from "@uiw/codemirror-themes-all";
 import {cpp} from "@codemirror/lang-cpp";
 import {OpenedFile, OpenedFilesContext} from "@/app/context/FileContext";
-import {useContext} from "react";
+import {useContext, useEffect, useRef} from "react";
 
 export default function CodeEditor(props: any) {
+    const $ref = useRef();
     const {openedFiles, setOpenedFiles} = useContext(OpenedFilesContext)
+
     return (
         <CodeMirror
             value={props.content}
             theme={tokyoNight}
             extensions={[
-                cpp()
+                cpp(),
             ]}
             height={props.height}
             width="85dvw"
