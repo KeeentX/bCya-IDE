@@ -7,6 +7,7 @@ import {OpenedFilesContext} from "@/app/context/FileContext";
 
 export default function Editor() {
     const {openedFiles, setOpenedFiles} = useContext(OpenedFilesContext);
+
     return (
         openedFiles.map((file, index) => {
             return (
